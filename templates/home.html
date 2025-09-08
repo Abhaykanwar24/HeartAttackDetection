@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Predict Heart Attack</title>
+</head>
+<body>
+    <h1>Enter Patient Data</h1>
+
+    {% if error %}
+        <p style="color:red;">{{ error }}</p>
+    {% endif %}
+
+    <form action="/predictdata" method="post">
+        <label>HR: </label><input type="number" step="any" name="HR" required><br>
+        <label>P: </label><input type="number" step="any" name="P" required><br>
+        <label>PR: </label><input type="number" step="any" name="PR" required><br>
+        <label>QRS: </label><input type="number" step="any" name="QRS" required><br>
+        <label>QT: </label><input type="number" step="any" name="QT" required><br>
+        <label>QTc: </label><input type="number" step="any" name="QTc" required><br>
+        <label>P Axis: </label><input type="number" step="any" name="P_Axis" required><br>
+        <label>QRS Axis: </label><input type="number" step="any" name="QRS_Axis" required><br>
+        <label>T Axis: </label><input type="number" step="any" name="T_Axis" required><br>
+        <label>RV5: </label><input type="number" step="any" name="RV5" required><br>
+        <label>SV1: </label><input type="number" step="any" name="SV1" required><br><br>
+
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction %}
+        <h2>Prediction: {{ results }}</h2>
+    {% endif %}
+
+</body>
+</html>

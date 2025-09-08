@@ -20,7 +20,7 @@ def main():
         logging.info("===== Model Training Started =====")
         model_trainer = ModelTrainer()
         model_path, best_model_name, best_score = model_trainer.initiate_model_trainer(
-            train_array, test_array, preprocessor_path
+        train_array, test_array
         )
         logging.info(f"===== Model Training Completed =====")
         logging.info(f"Best Model: {best_model_name} | F1-score: {best_score:.4f} | Saved at: {model_path}")
