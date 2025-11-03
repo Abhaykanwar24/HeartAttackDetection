@@ -21,7 +21,7 @@ class DataIngestion:
         logging.info("Entered the data ingestion method or component")
         try:
             # Read dataset
-            df = pd.read_csv(r'notebook/data/merged_data_191.csv')
+            df = pd.read_csv(r'notebook/data/merged_data_636.csv')
             logging.info(f"Read the dataset with shape {df.shape}")
 
             # Create artifacts directory
