@@ -3,6 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Predict Heart Attack</title>
+    <script>
+        function clearForm() {
+            // Reset all form fields
+            document.getElementById("predictionForm").reset();
+            // Hide prediction result
+            var result = document.getElementById("resultSection");
+            if(result) {
+                result.style.display = "none";
+            }
+        }
+    </script>
 </head>
 <body>
     <h1>Enter Patient Data</h1>
@@ -11,7 +22,7 @@
         <p style="color:red;">{{ error }}</p>
     {% endif %}
 
-    <form action="/predictdata" method="post">
+    <form id="predictionForm" action="/predictdata" method="post">
         <label>HR: </label><input type="number" step="any" name="HR" required><br>
         <label>P: </label><input type="number" step="any" name="P" required><br>
         <label>PR: </label><input type="number" step="any" name="PR" required><br>
@@ -25,10 +36,13 @@
         <label>SV1: </label><input type="number" step="any" name="SV1" required><br><br>
 
         <input type="submit" value="Predict">
+        <button type="button" onclick="clearForm()">Refresh</button>
     </form>
 
     {% if prediction %}
-        <h2>Prediction: {{ results }}</h2>
+        <div id="resultSection">
+            <h2>Prediction: {{ results }}</h2>
+        </div>
     {% endif %}
 
 </body>
